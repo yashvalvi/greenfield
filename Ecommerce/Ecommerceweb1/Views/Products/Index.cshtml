@@ -1,0 +1,15 @@
+﻿@using catalogue;
+
+<h2>Products for Sale</h2>
+<hr/>
+<main>
+    <div class="row">
+        @foreach (product p in @Model)
+        {
+            <p>@p.Name @p.Description @p.Unitprice  </p>
+            <li>
+                <img src="@p.images" alt="@p.Name" width="100px" />
+            </li>
+        }
+    </div>
+</main>
