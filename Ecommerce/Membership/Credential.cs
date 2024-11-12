@@ -8,5 +8,7 @@ namespace Membership
 {
     public class Credential
     {
+        public string Email;
+        public string Password;
     }
 }

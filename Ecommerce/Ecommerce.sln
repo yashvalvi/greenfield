@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDesignPatternApp", "Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionDemoApp", "CollectionDemoApp\CollectionDemoApp.csproj", "{98DB5D65-03CE-444D-8838-234FC04E98FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MembershipTestApp", "MembershipTestApp\MembershipTestApp.csproj", "{A6648F0D-913B-4401-A17F-4F9F35042491}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{98DB5D65-03CE-444D-8838-234FC04E98FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98DB5D65-03CE-444D-8838-234FC04E98FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98DB5D65-03CE-444D-8838-234FC04E98FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6648F0D-913B-4401-A17F-4F9F35042491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6648F0D-913B-4401-A17F-4F9F35042491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6648F0D-913B-4401-A17F-4F9F35042491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6648F0D-913B-4401-A17F-4F9F35042491}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -47,5 +47,15 @@
     <Compile Include="IAuthService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryDataRepositoryLib\BinaryDataRepositoryLib.csproj">
+      <Project>{774ec297-1080-414a-bc94-27c76d7f967c}</Project>
+      <Name>BinaryDataRepositoryLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Specification\Specification.csproj">
+      <Project>{96781c9d-9bbc-482e-936e-b65d69b4e292}</Project>
+      <Name>Specification</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

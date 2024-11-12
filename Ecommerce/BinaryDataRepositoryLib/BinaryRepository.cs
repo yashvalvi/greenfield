@@ -10,35 +10,36 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 namespace BinaryDataRepositoryLib
-    
+
 {
-    public class BinaryRepository:IDataRepository
+    public class BinaryRepository<T> : IDataRepository<T>
     {
-        public bool Serialize(string filename,List<product> products)
+        public bool Serialize(string filename, List<T> products)
         {
             bool status = false;
             //code for saving
-            BinaryFormatter formatter=new BinaryFormatter();
+            BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
-            formatter.Serialize(stream, products);  
+            formatter.Serialize(stream, products);
             stream.Close();
             return status;
         }
 
-        public List<product> Deserialize(string filename)
+        public List<T> Deserialize(string filename)
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            List<product> products = new List<product>();
-           
+            List<T> products = new List<T>();
+
             FileStream stream = new FileStream(filename, FileMode.Open);
             if (stream != null)
             {
-                products = (List<product>) formatter.Deserialize(stream);
+                products = (List<T>)formatter.Deserialize(stream);
             }
             stream.Close();
             //retreive all products from file
             return products;
         }
+
 
     }
 }
