@@ -11,7 +11,7 @@ using System.Dynamic;
 
 namespace Services
 {
-    internal class productservice : Iproductservice
+    public class productservice : Iproductservice
     {
         //  private List<product> _productList = new List<product>();
         //  public productservice()
@@ -48,6 +48,11 @@ namespace Services
         //      return true;
         //
         //  }
+        public productservice()
+        {
+            List<product> products=new List<product>();
+            Seeding();
+        }
         public bool Seeding()
         {
             bool status = false;
@@ -58,11 +63,63 @@ namespace Services
             products.Add(new product { Id = 3, Name = "lily", Description = "Delicate Flower", UnitPrice = 2, Quantity = 7000, images = "/images/lily.jpg" });
             products.Add(new product { Id = 4, Name = "jasmine", Description = "Fregrance Flower", UnitPrice = 12, Quantity = 55000, images = "/images/jasmines.jpg" });
             products.Add(new product { Id = 5, Name = "lotus", Description = "Worship Flower", UnitPrice = 45, Quantity = 15000, images = "/images/lotus.jpg" });
-            IDataRepository repo = new BinaryRepository();
-            status = repo.Serialize("products.dat", products);
+            IDataRepository<product> repo = new BinaryRepository<product>();
+            status = repo.Serialize(@"E:/products.dat", products);
             return status;
 
         }
+
+
+        public product Get(int id)
+        {
+            product foundProduct = null;
+            List<product> products = GetAll();
+            foreach (product p in products)
+            {
+                if (p.Id == id)
+                {
+                    foundProduct = p;
+
+                }
+
+            }
+                return foundProduct;
+        }
+        public List<product> GetAll()
+        {
+            List<product> products = new List<product>();
+            IDataRepository<product> repo = new BinaryRepository<product>();
+            products = repo.Deserialize(@"E:/products.dat");
+
+            return products;
+        }
+
+        public bool Insert(product product)
+        {
+            List<product> allProducts = GetAll();
+            allProducts.Add(product);
+            IDataRepository<product> repo = new BinaryRepository<product>();
+            repo.Serialize(@"E:/products.dat", allProducts);
+            return false;
+
+        }
+
+        public bool Update(product productTobeUpdated)
+        {
+            product theproduct = Get(productTobeUpdated.Id);
+            if (theproduct != null)
+            {
+                List<product> allProducts = GetAll();
+                allProducts.Remove(theproduct);
+                allProducts.Add(productTobeUpdated);
+                IDataRepository<product> repo = new BinaryRepository<product>();
+                repo.Serialize(@"E:/products.dat", allProducts);
+            }
+            return false;
+        }
+
+
+
         public bool Delete(int id)
         {
             product theProduct = Get(id);
@@ -70,57 +127,14 @@ namespace Services
             {
                 List<product> allProducts = GetAll();
                 allProducts.Remove(theProduct);
-                IDataRepository repo = new BinaryRepository();
-                repo.Serialize("products.dat", allProducts);
+                IDataRepository<product> repo = new BinaryRepository<product>();
+                repo.Serialize(@"E:/products.dat", allProducts);
             }
             return false;
         }
-        }
-    public product Get(int id)
-    {
-        product foundProduct = null;
-        List<product> products = GetAll();
-        foreach (product p in products)
-        {
-            if (p.Id == id)
-            {
-                foundProduct = p;
-
-            }
-                return foundProduct;
-            
-        }
     }
-        public List<product> GetAll(){
-        List<product> products = new List<product>();
-        IDataRepository repo = new BinaryRepository();
-        repo.Serialize("products.dat", products);
+   
 
-        return products;
-        }
-         
-       public bool Insert(product product)
-    {
-        List<product> allProducts = GetAll();
-        allProducts.Add(product);
-        IDataRepository repo = new BinaryRepository();
-        repo.Serialize("products.dat", allProducts);
-        return false;    
+    
 
-    }
-
-    public bool Update(product productTobeUpdated)
-    {
-        product theproduct = Get(productTobeUpdated.Id);
-        if (theproduct != null) {
-            List<product> allProducts = GetAll();
-            allProducts.Remove(theproduct);
-            allProducts.Add(productTobeUpdated);
-            IDataRepository repo = new BinaryRepository();
-            repo.Serialize("products.dat", allProducts);
-        }
-        return false;
-    }
-
-    }
 }

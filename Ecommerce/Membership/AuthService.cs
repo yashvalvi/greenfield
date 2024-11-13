@@ -11,14 +11,14 @@ namespace Membership
     public class AuthService : IAuthService
     {
         List<User> users;
-        List<Credential> credential;    
+        List<Credential> credential;
         public AuthService()
         {
             this.users = new List<User>();
-            this.credential = new List<Credential>();   
+            this.credential = new List<Credential>();
         }
-      
-       
+
+
         public bool Seeding()
         {
             bool status = false;
@@ -31,7 +31,7 @@ namespace Membership
             users.Add(new User { ID = 5, FirstName = "Yash", LastName = "Valvi", Email = "yashvalvi334@gmail.com", password = "7058964631" });
 
             IDataRepository<User> repo = new BinaryRepository<User>();
-            status = repo.Serialize("users.dat",users);
+            status = repo.Serialize("users.dat", users);
             return status;
 
         }
@@ -43,8 +43,8 @@ namespace Membership
         public bool Login(string email, string password)
         {
             IDataRepository<User> repo = new BinaryRepository<User>();
-            List<User> allusers=repo.Deserialize("users.dat");
-            foreach(User user in users)
+            List<User> allusers = repo.Deserialize("users.dat");
+            foreach (User user in users)
             {
                 if (user.Email == email)
                 {
@@ -52,37 +52,52 @@ namespace Membership
                 }
             }
             return false;
-            
+
         }
 
         public bool Register(User user)
         {
             IDataRepository<User> repo = new BinaryRepository<User>();
-            List<User> allusers= repo.Deserialize("users.dat");
+            List<User> allusers = repo.Deserialize("users.dat");
+            foreach(User u in allusers)
+            {
+                if(u.ID == user.ID)
+                {
+
+                    return false;
+                }
+               
+
+            }
             allusers.Add(user);
-            repo.Serialize("users.dat",allusers);
-            return true;
-
-        }
-        
+            repo.Serialize("users.dat", allusers);
+            return true; ;
             
-        }
 
-        public bool ResetPassword(string username, string oldpassword, string newpassword,string Email)
-        {
-        IDataRepository<User> repo = new BinaryRepository<User>();
-        List<User> allusers = repo.Deserialize("users.dat");
-        foreach( User user in allusers)
-        {
-            if(user.Email==Email && user.password==oldpassword)
         }
 
 
 
 
-    }
+        public bool ResetPassword(string username, string oldpassword, string newpassword, string Email)
+        {
+            IDataRepository<User> repo = new BinaryRepository<User>();
+            List<User> allusers = repo.Deserialize("users.dat");
+            foreach (User user in allusers)
+            {
+                if (user.Email == Email && user.password == oldpassword)
+                {
+                    user.password = newpassword;
+
+                }
+                return true;
+            }
+            return false;
+
+
+
+
+        }
 
     }
 }
-public int ID { get; set; }         
-pu
