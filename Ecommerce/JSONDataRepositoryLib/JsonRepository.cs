@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.Json;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices;
 using Specification;
@@ -12,34 +11,29 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace JSONDataRepositoryLib
 {
-    public class JsonRepository<T>: IJsonRepository
+    public class JsonRepository<T> : IDataRepository<T>
     {
-        public bool Serialize(string filename, List<T> items)
+        public List<T> Deserialize(string filename)
+        {
+            List<T> users = new List<T>();
+            string jsonData = File.ReadAllText(filename);
+            users = JsonConvert.DeserializeObject<List<T>>(jsonData);
+
+            //retreive all products from file
+            return users;
+
+        }
+
+        public bool Serialize(string filename, List<T> users)
         {
             bool status = false;
             //code for saving
-             = new BinaryFormatter();
-            FileStream stream = new FileStream(filename, FileMode.OpenOrCreate);
-            JsonSerializer.Serialize(stream, items);
-            stream.Close();
-            return status;
-
-
+            string jsonData = JsonConvert.SerializeObject(users);
+            File.WriteAllText(filename, jsonData);
+            return true;
 
         }
 
-        public List<T> Deserialize(string filename) {
-            BinaryFormatter formatter = new BinaryFormatter();
-            List<T> items = new List<T>();
+    }
 
-            FileStream stream = new FileStream(filename, FileMode.Open);
-            if (stream != null)
-            {
-                items = (List<T>)JsonSerializer.Deserialize(stream);
-            }
-            stream.Close();
-            //retreive all products from file
-            return items;
-
-        }
 }

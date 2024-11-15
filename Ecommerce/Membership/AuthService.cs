@@ -4,8 +4,9 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BinaryDataRepositoryLib;
 using Specification;
+using POCOLib;
+using JSONDataRepositoryLib;
 namespace Membership
 {
     public class AuthService : IAuthService
@@ -29,9 +30,13 @@ namespace Membership
             users.Add(new User { ID = 3, FirstName = "Yash", LastName = "Valvi", Email = "yashvalvi334@gmail.com", password = "7058964631" });
             users.Add(new User { ID = 4, FirstName = "Yash", LastName = "Valvi", Email = "yashvalvi334@gmail.com", password = "7058964631" });
             users.Add(new User { ID = 5, FirstName = "Yash", LastName = "Valvi", Email = "yashvalvi334@gmail.com", password = "7058964631" });
-
-            IDataRepository<User> repo = new BinaryRepository<User>();
+            List<Credential> creds= new List<Credential>();
+            creds.Add(new Credential {Email="yashvalvi334@gmsil.com",Password="ssaadsa" });
+            creds.Add(new Credential {Email="yashvalvi671@gmail.com", Password = "ssaadsd" });
+            IDataRepository<User> repo = new JsonRepository<User>();
             status = repo.Serialize("users.dat", users);
+            IDataRepository<Credential> cepo = new JsonRepository<Credential>();
+            status = cepo.Serialize("creds.dat", creds);
             return status;
 
         }
@@ -42,11 +47,11 @@ namespace Membership
 
         public bool Login(string email, string password)
         {
-            IDataRepository<User> repo = new BinaryRepository<User>();
-            List<User> allusers = repo.Deserialize("users.dat");
-            foreach (User user in users)
+            IDataRepository<Credential> repo = new JsonRepository<Credential>();
+            List<Credential> creds = repo.Deserialize("creds.dat");
+            foreach (Credential user in creds)
             {
-                if (user.Email == email)
+                if (user.Email == email && user.Password==password)
                 {
                     return true;
                 }
@@ -57,7 +62,7 @@ namespace Membership
 
         public bool Register(User user)
         {
-            IDataRepository<User> repo = new BinaryRepository<User>();
+            IDataRepository<User> repo = new JsonRepository<User>();
             List<User> allusers = repo.Deserialize("users.dat");
             foreach(User u in allusers)
             {
@@ -71,7 +76,7 @@ namespace Membership
             }
             allusers.Add(user);
             repo.Serialize("users.dat", allusers);
-            return true; ;
+            return true; 
             
 
         }
@@ -79,15 +84,15 @@ namespace Membership
 
 
 
-        public bool ResetPassword(string username, string oldpassword, string newpassword, string Email)
+        public bool ResetPassword( string oldpassword, string newpassword, string Email)
         {
-            IDataRepository<User> repo = new BinaryRepository<User>();
-            List<User> allusers = repo.Deserialize("users.dat");
-            foreach (User user in allusers)
+            IDataRepository<Credential> repo = new JsonRepository<Credential>();
+            List<Credential> creds = repo.Deserialize("creds.dat");
+            foreach(Credential user in creds)
             {
-                if (user.Email == Email && user.password == oldpassword)
+                if (user.Email == Email && user.Password == oldpassword)
                 {
-                    user.password = newpassword;
+                    user.Password = newpassword;
 
                 }
                 return true;
@@ -99,5 +104,6 @@ namespace Membership
 
         }
 
+   
     }
 }

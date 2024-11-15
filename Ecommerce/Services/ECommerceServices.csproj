@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB07E55A-26C0-489B-89BC-E2E207931BA5}</ProjectGuid>
+    <ProjectGuid>{0ABA6875-8B21-4C6E-BBB1-1B5807C327C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>POCOLib</RootNamespace>
-    <AssemblyName>POCOLib</AssemblyName>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,8 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="product.cs" />
+    <Compile Include="productservice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryDataRepositoryLib\BinaryDataRepositoryLib.csproj">
+      <Project>{774ec297-1080-414a-bc94-27c76d7f967c}</Project>
+      <Name>BinaryDataRepositoryLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POCOLib\ECommerceEntities.csproj">
+      <Project>{cb07e55a-26c0-489b-89bc-e2e207931ba5}</Project>
+      <Name>ECommerceEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Specification\Specification.csproj">
+      <Project>{96781c9d-9bbc-482e-936e-b65d69b4e292}</Project>
+      <Name>Specification</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

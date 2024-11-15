@@ -11,6 +11,6 @@ namespace Membership
         bool Login(string username, string password);
         bool Register(User user);
         bool ForgotPassword(string username);
-        bool ResetPassword(string username, string oldpassword, string newpassword);
+        bool ResetPassword( string oldpassword, string newpassword,string Email);
     }
 }

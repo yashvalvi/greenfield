@@ -76,8 +76,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthService.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="Credential.cs" />
     <Compile Include="IAuthService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +83,14 @@
     <ProjectReference Include="..\BinaryDataRepositoryLib\BinaryDataRepositoryLib.csproj">
       <Project>{774ec297-1080-414a-bc94-27c76d7f967c}</Project>
       <Name>BinaryDataRepositoryLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JSONDataRepositoryLib\JsonDataRepositoryLib.csproj">
+      <Project>{04bf9343-2356-4c66-bcb8-0d27174f15e8}</Project>
+      <Name>JsonDataRepositoryLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POCOLib\ECommerceEntities.csproj">
+      <Project>{cb07e55a-26c0-489b-89bc-e2e207931ba5}</Project>
+      <Name>ECommerceEntities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Specification\Specification.csproj">
       <Project>{96781c9d-9bbc-482e-936e-b65d69b4e292}</Project>

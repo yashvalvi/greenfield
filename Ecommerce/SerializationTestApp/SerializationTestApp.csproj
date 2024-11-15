@@ -50,13 +50,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\POCOLib\POCOLib.csproj">
+    <ProjectReference Include="..\POCOLib\ECommerceEntities.csproj">
       <Project>{cb07e55a-26c0-489b-89bc-e2e207931ba5}</Project>
-      <Name>POCOLib</Name>
+      <Name>ECommerceEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
+    <ProjectReference Include="..\Services\ECommerceServices.csproj">
       <Project>{0aba6875-8b21-4c6e-bbb1-1b5807c327c3}</Project>
-      <Name>Services</Name>
+      <Name>ECommerceServices</Name>
     </ProjectReference>
     <ProjectReference Include="..\Specification\Specification.csproj">
       <Project>{96781c9d-9bbc-482e-936e-b65d69b4e292}</Project>

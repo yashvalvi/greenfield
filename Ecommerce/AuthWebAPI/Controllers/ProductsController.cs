@@ -51,8 +51,10 @@ namespace AuthWebAPI.Controllers
             {
                 Iproductservice svc = new productservice();
                 svc.Delete(id);
+     
 
             }
+
         }
     }
 
