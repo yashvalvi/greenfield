@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using POCOLib;
+using ECommerceEntities;
 using Services;
 using Specification;
 
@@ -17,43 +17,44 @@ namespace AuthWebAPI.Controllers
             //crud operation
 
             // GET api/values
-            public IEnumerable<product> Get()
+            public IEnumerable<Product> Get()
             {
-                Iproductservice svc = new productservice();
-                List<product> products = svc.GetAll();
+                IProductService svc = new ProductService();
+                List<Product> products = svc.GetAll();
                 return products;
             }
 
             // GET api/values/5
-            public product Get(int id)
+            public Product Get(int id)
             {
-                Iproductservice svc = new productservice();
-                product product = svc.Get(id);
+            IProductService svc = new ProductService();
+            Product product = svc.Get(id);
                 return product;
             }
 
             // POST api/values
-            public void Post([FromBody] product product)
+            public void Post([FromBody] Product product)
             {
-                Iproductservice svc = new productservice();
-                svc.Insert(product);
+            IProductService svc = new ProductService();
+            svc.Insert(product);
             }
 
             // PUT api/values/5
-            public void Put(int id, [FromBody] product product)
+            public void Put(int id, [FromBody] Product product)
             {
-                Iproductservice svc = new productservice();
-                svc.Update(product);
+            IProductService svc = new ProductService();
+            svc.Update(product);
             }
 
             // DELETE api/values/5
             public void Delete(int id)
             {
-                Iproductservice svc = new productservice();
+                IProductService svc = new ProductService();
                 svc.Delete(id);
      
 
             }
+
 
         }
     }

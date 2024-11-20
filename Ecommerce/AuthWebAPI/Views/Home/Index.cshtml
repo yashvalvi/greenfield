@@ -1,26 +1,65 @@
-﻿<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="aspnetTitle">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-            is an ideal platform for building RESTful applications on the .NET Framework.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-        </section>>
-    </div>
-</main>
+﻿
+<h2>Login</h2>
+<table>
+    <tr><td>Email:</td><td> <input type="text" id="txtEmail" /></td></tr>
+    <tr><td>Password:</td> <td> <input type="password" id="txtPassword" /></td></tr>
+    <tr><td>P </td><td> <button onclick="onSignIn()"> Login</button></td></tr>
+</table>
+
+<script>
+    var onSignIn = () => {
+        //Dom programming
+        let txtUserEmail = document.getElementById("txtEmail");
+        let userEmail = txtUserEmail.value;
+        let txtUserPassword = document.getElementById("txtPassword");
+        let userPassword = txtUserPassword.value;
+        /* if (email === "ravi.tambade@gmail.com" && password === "123") {
+            alert("login successful");
+            }
+            else {
+                alert("invalid user");
+            }
+        */
+        /* fetch('/home/signin',)
+             .then(response => response.json())
+             .then(data => console.log(data))
+             .catch(error => console.error('Error:', error));
+         */
+
+        // Define the URL of the API endpoint
+        const url = '/home/getuser';
+
+        // Define the data to send in the request body (usually JSON)
+        const credential = {
+            email: userEmail,
+            password: userPassword
+        };
+
+        // Use fetch API to send a POST request
+        fetch(url,
+            //{
+            //    method: 'POST', // Specify the request method
+            //    headers: { 'Content-Type': 'application/json' }, // Set content type to JSON
+            //    body: JSON.stringify(credential), // Convert JavaScript object to JSON string
+            //}
+        )
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse the JSON from the response body
+            })
+            .then(responseData => {
+                if (userEmail === responseData.Email && userPassword === responseData.Password) {
+                    alert("success")
+                }
+                else {
+                    alert("failed")
+                }
+                console.log('Success:', responseData); // Handle the response data
+            })
+            .catch(error => {
+                console.error('There was an error!', error); // Handle any errors
+            });
+    };
+</script>

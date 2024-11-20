@@ -126,12 +126,13 @@
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\ShoppingcartController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\product.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +201,8 @@
     <Content Include="Views\Shoppingcart\AddtoCart.cshtml" />
     <Content Include="Views\Shoppingcart\RemoveFromCart.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Customer\OrderHistoryView.cshtml" />
+    <Content Include="Views\Customer\PersonalInformationView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -234,9 +237,17 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\catalogue\catalogue.csproj">
-      <Project>{7233b3ac-c26e-485a-ab35-2851b039dd50}</Project>
-      <Name>catalogue</Name>
+    <ProjectReference Include="..\POCOLib\ECommerceEntities.csproj">
+      <Project>{cb07e55a-26c0-489b-89bc-e2e207931ba5}</Project>
+      <Name>ECommerceEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\ECommerceServices.csproj">
+      <Project>{0aba6875-8b21-4c6e-bbb1-1b5807c327c3}</Project>
+      <Name>ECommerceServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Specification\Specification.csproj">
+      <Project>{96781c9d-9bbc-482e-936e-b65d69b4e292}</Project>
+      <Name>Specification</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

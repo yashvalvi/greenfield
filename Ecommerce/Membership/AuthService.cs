@@ -5,8 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Specification;
-using POCOLib;
-using JSONDataRepositoryLib;
+using ECommerceEntities;
+using JsonDataRepositoryLib;
 namespace Membership
 {
     public class AuthService : IAuthService

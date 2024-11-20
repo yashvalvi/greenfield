@@ -9,7 +9,7 @@ using Specification;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace JSONDataRepositoryLib
+namespace JsonDataRepositoryLib
 {
     public class JsonRepository<T> : IDataRepository<T>
     {

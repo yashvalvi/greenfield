@@ -8,6 +8,6 @@ namespace ShoppingCart
 {
     public  interface ICartServices
     {
-        List<>
+         
     }
 }

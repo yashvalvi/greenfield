@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+
+
 namespace HRPortal
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -31,7 +33,7 @@ namespace HRPortal
         }
         protected void Application_Error()
         {
-          //  Response.Redirect("/Home/Error");
+          //  Response.Redirect("/Home/Error")
         }
     }
 }

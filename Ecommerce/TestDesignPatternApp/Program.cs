@@ -28,6 +28,8 @@ namespace TestDesignPatternApp
             return temp;
         }
     }
+
+
     internal class Program
     {
         static void Main(string[] args)
@@ -40,8 +42,6 @@ namespace TestDesignPatternApp
             Console.WriteLine(c.real + " , " + c.imag);
             Console.WriteLine(c2.real + "," + c2.imag);
 
-
-        }
         }
     }
 }

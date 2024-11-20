@@ -6,15 +6,19 @@ using System.Web.Mvc;
 
 namespace Ecommerceweb1.Controllers
 {
-    public class ShoppingcartController : Controller
+    public class ShoppingCartController : Controller
     {
-        // GET: Shoppingcart
-        public ActionResult Index()
+        // GET: ShoppingCart
+        public class ShoppingcartController : Controller
         {
-            return View();
-        }
-        public ActionResult AddtoCart() { return View(); }
-        public ActionResult RemoveFromCart  () { return View(); }
+            // GET: Shoppingcart
+            public ActionResult Index()
+            {
+                return View();
+            }
+            public ActionResult AddtoCart() { return View(); }
+            public ActionResult RemoveFromCart() { return View(); }
 
+        }
     }
 }

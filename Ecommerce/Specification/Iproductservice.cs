@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using POCOLib;
+using ECommerceEntities;
 namespace Specification
 {
-    public interface Iproductservice
+    public interface IProductService
     {
-        List<product> GetAll();
-        product Get(int id);
-        bool Insert(product product);
-        bool Update(product product);
+        List<Product> GetAll();
+        Product Get(int id);
+        bool Insert(Product product);
+        bool Update(Product product);
         bool Delete(int id);
     }
 }

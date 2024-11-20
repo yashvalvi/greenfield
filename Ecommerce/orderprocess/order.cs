@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 namespace orderprocess
 
 {
-    public class order
+    public class Order
     {
-        public DateTime orderdate { get; set; }
 
-        public string         { get; set;}
-        public string product { get; set; }
-        public string orderid { get; set; }
-        public string ordername { get; set; }
 
     }
+
+}
 

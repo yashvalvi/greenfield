@@ -1,24 +1,35 @@
-﻿
+﻿@using EcommerceEntities;
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<!--<h2>Index</h2>
 <main>
     <ul>
-    @{
-        foreach (Ecommerceweb1.Models.Customer p in @Model)
-        {
-            <li>
-                <p>
-                    @p.FirstName
-                    @p.LastName
-                    @p.ContactNo
-                </p>
+   /     @{
+         // foreach (Ecommerceweb1.Models.Customer p in @Model)
+            {
+                <li>
+                    <p>
+                      //p.FirstName
+                      //p.LastName
+                        //p.ContactNo
+                    </p>
 
-            </li>
-        }
-    }
+                </li>
+          }
+       }
     </ul>
-</main>
+</main>    -->
+
+<h2>Customer Profile</h2>
+@{
+    CustomerProfile profile = (CustomerProfile)ViewData["profile"];
+    @Html.Partial("PersonalInformationView", profile.TheCustomer);
+
+    @Html.Partial("OrderHistoryView", profile.OrderHistory);
+
+}
+
+<hr>
 

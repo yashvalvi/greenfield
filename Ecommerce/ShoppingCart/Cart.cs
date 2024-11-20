@@ -10,7 +10,7 @@ namespace ShoppingCart
     public class Cart
     {
         public List<Item> Items { get; set; }
-        Items.Add(new Item{Id=1,Name="Phone",Description="accessories"});
+        
           
 
     }
