@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "jquery";
+}
+
+<h2>jquery</h2>
+
+<h2>javascript</h2>
+<p id="para"> Hello</p>
+
+<ul id="listNames">
+    <li>Tambade</li>
+    <li>Nene</li>
+    <li>Gore</li>
+
+</ul>
+<button id="button1">push me</button>
+<button id="button2">show me</button>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(() => {
+        console.log("document is initialized");
+        $("#button1").click(()=>{
+            console.log(" Push me button clicked..");
+            $("#para").html("89");
+        });
+
+        $("#button2").click( ()=> {
+            console.log(" Show  me button clicked..");
+            //JSON Object
+            let product = {
+                "firstname": "Yash",
+                "lastname": "Valvi",
+                "contactnumber": "9882378674"
+            };
+
+            //JSON Array
+
+            let products = [
+                { "firstname": "Yash", "lastname": "Valvi", "contactnumber": "9882378674" },
+                { "firstname": "Arayan", "lastname": "D", "contactnumber": "9882378654" },
+                { "firstname": "Sameer", "lastname": "Valvi", "contactnumber": "6786778674" },
+                { "firstname": "Santosh", "lastname": "Valvi", "contactnumber": "9882378674" },
+            ];
+          
+
+            //$("#para").html("89");
+            console.log(product);
+            $("#para").html(JSON.stringify(product));
+
+            for (let p of products) {
+                console.log(p.firstname);
+                $("#listNames").append('<li>' + p.firstname+'</li>');
+            }
+        });
+    });
+
+
+
+
+</script>

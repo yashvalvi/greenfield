@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Catalog";
+}
+
+<h1> Catalog </h1>
+<h2>Product details</h2>
+<!--<form method="Get" action="/Home/Catalog"> -->
+<table>
+    <tr>
+        <th>   Id    </th>
+        <th>   Name   </th>
+        <th>  Description    </th>
+        <th>  ProductId    </th>
+        <th> ProductName     </th>
+        <th>    UnitPrice  </th>
+        <th>   Quantity   </th>
+
+    </tr>
+    <tbody id="products-table-body">
+    </tbody>
+</table>
+<button id="button1">Fetch</button>
+
+<form>
+    <table>
+        <tr>
+            <td>   Id   </td>
+            <td><input type="text" name="ID" id="ID" /></td>
+        </tr>
+        <tr>
+            <td> Name   </td>
+            <td><input type="text" name="Name" id="Name" /></td>
+        </tr>
+        <tr>
+            <td>  Description  </td>
+            <td><input type="text" name="Description" id="Description" /></td>
+        </tr>
+        <tr>
+            <td> ProductId  </td>
+            <td><input type="text" name="ProductId" id="ProductId" /></td>
+        </tr>
+        <tr>
+            <td> ProductName  </td>
+            <td><input type="text" name="ProductName" id="ProductName" /></td>
+        </tr>
+        <tr>
+            <td>  UnitPrice  </td>
+            <td><input type="text" name="UnitPrice" id="UnitPrice" /></td>
+        </tr>
+        <tr>
+            <td>  Quantity   </td>
+            <td><input type="text" name="Quantity" id="Quantity" /></td>
+        </tr>
+        </table>
+</form>
+<button id="button2">Post</button>
+
+<!--   </form> -->
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    const url = "/api/products";
+    $("#button1").click(() => {
+        $.ajax({
+            url: url,
+            type: "GET",
+            contentType: "application/json",
+            success: (result) => {
+                $("#div1").html(result);
+                console.log(result);
+                $.each(result, (index, product) => {
+
+                    $("#products-table-body").append(
+                        `
+                                <tr>
+                                    <td>${product.Id}</td>
+                                    <td>${product.Name}</td>
+                                    <td>${product.Description}</td>
+                                    <td>${product.ProductId}</td>
+                                    <td>${product.ProductName}</td>
+                                    <td>${product.UnitPrice}</td>
+                                    <td><button>Details</button></td>
+                                    <td><button>Update</button></td>
+                                </tr>
+                                `
+                    );
+                });
+            },
+            error: () => {
+                console.log("something has gone wrong");
+            }
+
+        })
+    })
+
+    $("#button2").click(() => {
+        const productdata = {
+            Id=$("#ID").val(),
+            Name=$("#Name").val(),
+            Description: $("#Description").val(),
+            ProductId=$("#ProductId").val(),
+            ProductName=$("ProductName").val(),
+            UnitPrice=$("UnitPrice").val(),
+            Quantity=$("Quantity").val()
+        }
+        $.ajax({
+            url: url,
+            type: "POST",
+            contentType: "application/json",
+            data:productdata          
+            success: (result) =>{
+                $("#div1").html(result);
+                console.log(result);
+            }
+    })
+
+
+</script>
+
+
+
+
+

@@ -18,11 +18,11 @@ namespace Services
         string userfile = @"E:/products.json";
 
         //  }
-        public ProductService()
+       /* public ProductService()
         {
             List<Product> products=new List<Product>();
             Seeding();
-        }
+        }*/
         public bool Seeding()
         {
             bool status = false;

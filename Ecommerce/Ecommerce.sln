@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitasking", "Multitaskin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultitaskAsyncApp", "MultitaskAsyncApp\MultitaskAsyncApp.csproj", "{630F388A-4387-43EF-A0B3-C317AB674B5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTestApp", "DBTestApp\DBTestApp.csproj", "{720E46A1-7F76-452C-A36D-066CD0F91868}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -193,6 +195,10 @@ Global
 		{630F388A-4387-43EF-A0B3-C317AB674B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{630F388A-4387-43EF-A0B3-C317AB674B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{630F388A-4387-43EF-A0B3-C317AB674B5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{720E46A1-7F76-452C-A36D-066CD0F91868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720E46A1-7F76-452C-A36D-066CD0F91868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720E46A1-7F76-452C-A36D-066CD0F91868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720E46A1-7F76-452C-A36D-066CD0F91868}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
