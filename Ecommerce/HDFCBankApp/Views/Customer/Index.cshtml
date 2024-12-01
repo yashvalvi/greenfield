@@ -8,7 +8,7 @@
     List<Customer> customers = (List<Customer>)ViewData["list"];
     foreach(Customer customer in customers)
             {
-              <p>@customer.Name, @customer.Location <a href="Details"></a> </p>
+              <p>@customer.Name, @customer.Location <a href="/Customer/Details/@customer.Id">details</a> </p>
             }
 }
 

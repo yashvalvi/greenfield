@@ -107,5 +107,10 @@ namespace Services
             }
             return false;
         }
+
+        void IProductService.Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

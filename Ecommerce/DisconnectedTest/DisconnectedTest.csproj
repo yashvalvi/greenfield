@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0ABA6875-8B21-4C6E-BBB1-1B5807C327C3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Services</RootNamespace>
-    <AssemblyName>Services</AssemblyName>
+    <ProjectGuid>{F5C158F7-8F74-4826-8707-CCB31111FE36}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DisconnectedTest</RootNamespace>
+    <AssemblyName>DisconnectedTest</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,35 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBServices\ProductService.cs" />
-    <Compile Include="RepoServices\ProductService.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShoppingCartService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BinaryDataRepositoryLib\BinaryDataRepositoryLib.csproj">
-      <Project>{774ec297-1080-414a-bc94-27c76d7f967c}</Project>
-      <Name>BinaryDataRepositoryLib</Name>
-    </ProjectReference>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EcommerceDALLib\EcommerceDALLib.csproj">
       <Project>{b4af647f-c881-4974-afe4-8f127f5c1920}</Project>
       <Name>EcommerceDALLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\JSONDataRepositoryLib\JsonDataRepositoryLib.csproj">
-      <Project>{04bf9343-2356-4c66-bcb8-0d27174f15e8}</Project>
-      <Name>JsonDataRepositoryLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\POCOLib\ECommerceEntities.csproj">
-      <Project>{cb07e55a-26c0-489b-89bc-e2e207931ba5}</Project>
+      <Project>{CB07E55A-26C0-489B-89BC-E2E207931BA5}</Project>
       <Name>ECommerceEntities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Specification\Specification.csproj">
-      <Project>{96781c9d-9bbc-482e-936e-b65d69b4e292}</Project>
-      <Name>Specification</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,17 +1,19 @@
-﻿using System;
+﻿using ECommerceEntities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ECommerceEntities;
+
 namespace Specification
 {
-    public interface IProductService
+    public  interface IDBManager
     {
-        List<Product> GetAll();
-        Product Get(int id);
         bool Insert(Product product);
         bool Update(Product product);
         void Delete(int id);
+        void GetCount();
+        List<Product> GetAll();
+        Product GetByID(int id);
     }
 }
